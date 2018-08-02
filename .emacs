@@ -1,8 +1,3 @@
-;; Set default projectile location
-;;(use-package projectile :ensure t
-;;  :config ((projectile-mode)
-;;                (setq projectile-project-search-path '("~/projects/")))
-;;  )
 ;; Hide startup screen, toolbar, menubar, scrollbar, and fullscreen emacs by default
 (setq inhibit-startup-screen t)
 (tool-bar-mode -1)
@@ -48,6 +43,7 @@
              :config (projectile-mode)
              )
 (use-package erlang :ensure t)
+(use-package markdown-mode :ensure t)
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

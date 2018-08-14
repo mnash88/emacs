@@ -25,36 +25,28 @@
   :ensure spacemacs-theme
   :config (load-theme 'spacemacs-dark t))
 (use-package helm :ensure t
-             :bind (("M-x" . helm-M-x)
-                    ("C-x C-f" . helm-find-files)
-                    ("C-x b" . helm-buffers-list))
-             )
+  :bind (("M-x" . helm-M-x)
+         ("C-x C-f" . helm-find-files)
+         ("C-x b" . helm-buffers-list))
+  :config (helm-mode)
+  )
 (use-package which-key :ensure t
   :config (which-key-mode)
   )
-(use-package hlinum :ensure t
-             :config (hlinum-activate))
-(use-package restclient :ensure t)
-(use-package neotree :ensure t
-             :bind ([f8] . neotree-toggle)
-             :init (setq neo-window-width 30)
-             :config (setq projectile-switch-project-action 'neotree-projectile-action))
 (use-package projectile :ensure t
-             :config (projectile-mode)
-             )
+  :config (projectile-mode)
+  )
+(use-package helm-projectile :ensure t
+  :config (helm-projectile-on))
+(use-package hlinum :ensure t
+  :config (hlinum-activate))
+(use-package restclient :ensure t
+  :init (fset 'json-pretty-print 'json-reformat-region))
+(use-package neotree :ensure t
+  :bind ([f8] . neotree-toggle)
+  :init (setq neo-window-width 40
+              neo-window-position 'right)
+  :config (setq projectile-switch-project-action 'neotree-projectile-action))
+;; Work Specific Stuff
 (use-package erlang :ensure t)
 (use-package markdown-mode :ensure t)
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(package-selected-packages
-   (quote
-    (erlang which-key spacemacs-theme projectile neotree restclient hlinum helm zenburn-theme use-package))))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )

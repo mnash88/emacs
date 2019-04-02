@@ -50,3 +50,4 @@
 ;; Work Specific Stuff
 (use-package erlang :ensure t)
 (use-package markdown-mode :ensure t)
+(use-package erc :ensure t)
